@@ -4,13 +4,21 @@ function clockWrite() {
 	m = d.getUTCMinutes(),
 	s = d.getUTCSeconds();
 	
+	//Need to set day of the week & month to array & display that
+	day	= d.getUTCDay(),
+	date = d.getUTCDate(),
+	month = d.getUTCMonth() + 1,
+	year = d.getUTCFullYear();
+	
 	h = (h < 10 ? '0' : '') + h;
 	m = (m < 10 ? '0' : '') + m;
 	s = (s < 10 ? '0' : '') + s;
 	
-	time = (h + ':' + m + ':' + s);
+	utctime = (h + ':' + m + ':' + s);
+	utcdate = (day + '-' + month + '-' + date + '-' + year);
 	
-	document.getElementById("clock").firstChild.nodeValue = time;
+	document.getElementById("time").firstChild.nodeValue = utctime;
+	document.getElementById("date").firstChild.nodeValue = utcdate;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
