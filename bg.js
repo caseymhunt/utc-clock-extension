@@ -1,7 +1,7 @@
-updateClock();
-setInterval(updateClock, 30000);
-badgeColor();
-	
+//Set badge text refresh rate: 1s
+var refresh = 1000;
+setInterval(updateClock, refresh);
+
 function badgeColor()
 	{
 	chrome.browserAction.setBadgeBackgroundColor({color:[0, 215, 0, 255]})
@@ -19,3 +19,7 @@ function updateClock()
 	
 	chrome.browserAction.setBadgeText({text:'' + time});
 }
+
+//Run Clock function & set badge
+updateClock();
+badgeColor();
