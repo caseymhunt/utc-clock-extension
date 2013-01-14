@@ -22,8 +22,7 @@ It will not ever show you current local time or attempt to be anything as compli
 3. Installation
 The easiest method of installation, and preferred method, is through the Chrome Web Store. Not only will this automate the installation process, but it will also keep your extension up to date with any future changes that may be necessary. 
 
-The extension may be installed from the following URL:
-https://chrome.google.com/webstore/detail/gmtutc-clock/lkiboebkhioapbcogmjkkjbpgbgjlodj
+The extension may be installed [from its page](https://chrome.google.com/webstore/detail/gmtutc-clock/lkiboebkhioapbcogmjkkjbpgbgjlodj) on the Chrome Web Store
 
 4. Feature Requests
 Please feel free to request features or changes to the extension on the reviews section in the Chrome Web Store or in comments here on Github. I entertain all ideas and will do my best to implement. 
