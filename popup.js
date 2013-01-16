@@ -1,13 +1,17 @@
+var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
 function clockWrite() {
+	//Set all the time variables
 	var d = new Date(),
 	h = d.getUTCHours(),
 	m = d.getUTCMinutes(),
 	s = d.getUTCSeconds();
 	
-	//Need to set day of the week & month to array & display that
+	//Set all the date variables
 	day	= d.getUTCDay(),
 	date = d.getUTCDate(),
-	month = d.getUTCMonth() + 1,
+	month = d.getUTCMonth(),
 	year = d.getUTCFullYear();
 	
 	h = (h < 10 ? '0' : '') + h;
@@ -15,7 +19,7 @@ function clockWrite() {
 	s = (s < 10 ? '0' : '') + s;
 	
 	utctime = (h + ':' + m + ':' + s);
-	utcdate = (day + '-' + month + '-' + date + '-' + year);
+	utcdate = (days[day] + ' ' + months[month] + ' ' + date + ', ' + year);
 	
 	document.getElementById("time").firstChild.nodeValue = utctime;
 	document.getElementById("date").firstChild.nodeValue = utcdate;
