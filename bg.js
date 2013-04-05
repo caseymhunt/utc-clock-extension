@@ -1,5 +1,5 @@
-//Set badge text refresh rate: 1s
-var refresh = 1000;
+//Set badge text refresh rate: 5s
+var refresh = 5000;
 setInterval(updateClock, refresh);
 
 function badgeColor()

@@ -1,5 +1,5 @@
 var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
 function clockWrite() {
 	//Set all the time variables
