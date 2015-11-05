@@ -5,12 +5,12 @@ body {
 }
 #time, #date {
 	text-align: center;
-	font-family: 'Unica One', cursive;
+	font-family: 'Avenir Next','Arial',sans-serif;
 	letter-spacing: 1px;
-	line-height: 20px;
+	line-height: 28px;
 }
 #time { 
-	font-weight: bold;
+	font-weight: 700;
 	color: #4AB92F; 
 	-webkit-text-stroke: 1px #3f0;
 	font-size: 24px;				

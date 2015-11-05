@@ -3,7 +3,7 @@
 	
 	"name": "GMT/UTC Clock",
 	"description": "UTC Clock extension for Google Chrome.",
-	"version": "4.0",
+	"version": "4.1",
 	"author": "Casey Hunt -- casey.hunt (at) gmail.com",
 	
 	"background": {
