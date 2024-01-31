@@ -1,22 +1,22 @@
 {
 	"manifest_version": 3,
-	
 	"name": "GMT/UTC Clock",
 	"description": "UTC Clock extension for Google Chrome.",
 	"version": "4.1",
 	"author": "Casey Hunt",
-	
 	"background": {
-		"scripts": ["bg.js"],
+		"scripts": [
+			"bg.js"
+		],
 		"persistent": true
 	},
 	"browser_action": {
 		"default_title": "UTC Clock",
-		"default_icon": "icon2.png",
+		"default_icon": "images/icon2.png",
 		"default_popup": "popup.html"
 	},
 	"icons": {
-      "128": "icon_128.png",
-      "48": "icon_48.png"
+		"128": "images/icon_128.png",
+		"48": "images/icon_48.png"
 	}
 }
