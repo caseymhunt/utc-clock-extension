@@ -1,0 +1,10 @@
+{
+  "name": "utc-clock-extension",
+  "version": "5.0.0",
+  "description": "UTC Clock extension for Google Chrome.",
+  "author": "Michael Speed Elder",
+  "license": "ISC",
+  "devDependencies": {
+    "chrome-types": "^0.1.254"
+  }
+}
