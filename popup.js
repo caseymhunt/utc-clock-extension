@@ -1,30 +1,44 @@
-var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+/**
+ * Over-engineered top-level closure to avoid
+ * anything here from leaking globally.
+ * @param {HTMLElement} timeEl
+ * @param {HTMLElement} dateEl
+ */
+;((timeEl, dateEl) => {
+  ;('use strict')
 
-function clockWrite() {
-	//Set all the time variables
-	var d = new Date(),
-	h = d.getUTCHours(),
-	m = d.getUTCMinutes(),
-	s = d.getUTCSeconds();
-	
-	//Set all the date variables
-	day	= d.getUTCDay(),
-	date = d.getUTCDate(),
-	month = d.getUTCMonth(),
-	year = d.getUTCFullYear();
-	
-	h = (h < 10 ? '0' : '') + h;
-	m = (m < 10 ? '0' : '') + m;
-	s = (s < 10 ? '0' : '') + s;
-	
-	utctime = (h + ':' + m + ':' + s);
-	utcdate = (days[day] + ' ' + months[month] + ' ' + date + ', ' + year);
-	
-	document.getElementById("time").firstChild.nodeValue = utctime;
-	document.getElementById("date").firstChild.nodeValue = utcdate;
-}
+  /** @type {Intl.DateTimeFormatOptions} */
+  const dateFormatOpts = {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }
 
-document.addEventListener('DOMContentLoaded', function () {
-	setInterval(clockWrite, 1000); clockWrite();
-});
+  /** @type {Intl.DateTimeFormatOptions} */
+  const timeFormatOpts = {
+    hour12: false,
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    timeZone: 'UTC',
+  }
+
+  function clockWrite() {
+    const date = new Date()
+
+    timeEl.firstChild.nodeValue = date.toLocaleTimeString(
+      undefined,
+      timeFormatOpts,
+    )
+    dateEl.firstChild.nodeValue = date.toLocaleDateString(
+      undefined,
+      dateFormatOpts,
+    )
+
+    setTimeout(clockWrite, 1000)
+  }
+
+  clockWrite()
+})(document.getElementById('time'), document.getElementById('date'))
