@@ -1,15 +1,19 @@
-//Set badge text refresh rate: 5s
-const refresh = 5000
-setInterval(updateClock, refresh)
-
-const formatter = Intl.NumberFormat(undefined, { minimumIntegerDigits: 2 })
+/** @type {Intl.DateTimeFormatOptions} */
+const timeFormatOpts = {
+  hour12: false,
+  hour: '2-digit',
+  minute: '2-digit',
+  timeZone: 'UTC',
+}
 
 function updateClock() {
   const date = new Date()
-  const hour = formatter.format(date.getUTCHours())
-  const min = formatter.format(date.getUTCMinutes())
 
-  chrome.action.setBadgeText({ text: `${hour}:${min}` })
+  chrome.action.setBadgeText({
+    text: date.toLocaleTimeString(undefined, timeFormatOpts),
+  })
+
+  setTimeout(updateClock, 5000)
 }
 
 //Run Clock function & set badge
