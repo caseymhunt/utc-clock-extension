@@ -1,23 +1,21 @@
-//Set badge text refresh rate: 5s
-var refresh = 5000
-setInterval(updateClock, refresh)
-
-function badgeColor() {
-  chrome.action.setBadgeBackgroundColor({ color: [0, 215, 0, 255] })
+/** @type {Intl.DateTimeFormatOptions} */
+const timeFormatOpts = {
+  hour12: false,
+  hour: '2-digit',
+  minute: '2-digit',
+  timeZone: 'UTC',
 }
 
 function updateClock() {
-  var date = new Date(),
-    hour = date.getUTCHours(),
-    min = date.getUTCMinutes()
+  const date = new Date()
 
-  hour = (hour < 10 ? '0' : '') + hour
-  min = (min < 10 ? '0' : '') + min
-  time = hour + '' + min
+  chrome.action.setBadgeText({
+    text: date.toLocaleTimeString(undefined, timeFormatOpts),
+  })
 
-  chrome.action.setBadgeText({ text: '' + time })
+  setTimeout(updateClock, 5000)
 }
 
 //Run Clock function & set badge
+chrome.action.setBadgeBackgroundColor({ color: '#00d700' })
 updateClock()
-badgeColor()
