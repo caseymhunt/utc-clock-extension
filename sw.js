@@ -15,10 +15,6 @@ chrome.runtime.onStartup.addListener(() => {
   }
 })
 
-const badgeColor = () => {
-  chrome.action.setBadgeBackgroundColor({ color: [0, 215, 0, 255] })
-}
-
 const updateClock = () => {
   const date = new Date()
 
@@ -32,7 +28,7 @@ const updateClock = () => {
 /** Start clock timer & set badge color */
 const init = () => {
   updateClock()
-  badgeColor()
+  chrome.action.setBadgeBackgroundColor({ color: [0, 215, 0, 255] })
 }
 
 init()
