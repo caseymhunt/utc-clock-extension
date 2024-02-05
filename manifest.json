@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "GMT/UTC Clock",
 	"description": "UTC Clock extension for Google Chrome.",
-	"version": "5.0.0",
+	"version": "5.1.0",
 	"author": "Casey Hunt",
 	"background": {
 		"service_worker": "sw.js"
