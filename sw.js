@@ -6,16 +6,33 @@ const timeFormatOpts = {
   timeZone: 'UTC',
 }
 
-function updateClock() {
+/** @type {ReturnType<typeof setTimeout>} */
+let timeout
+
+chrome.runtime.onStartup.addListener(() => {
+  if (!timeout) {
+    init()
+  }
+})
+
+const badgeColor = () => {
+  chrome.action.setBadgeBackgroundColor({ color: [0, 215, 0, 255] })
+}
+
+const updateClock = () => {
   const date = new Date()
 
   chrome.action.setBadgeText({
     text: date.toLocaleTimeString(undefined, timeFormatOpts),
   })
 
-  setTimeout(updateClock, 5000)
+  timeout = setTimeout(updateClock, 5000)
 }
 
-//Run Clock function & set badge
-chrome.action.setBadgeBackgroundColor({ color: '#00d700' })
-updateClock()
+/** Start clock timer & set badge color */
+const init = () => {
+  updateClock()
+  badgeColor()
+}
+
+init()
