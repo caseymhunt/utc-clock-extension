@@ -18,7 +18,7 @@
 
   /** @type {Intl.DateTimeFormatOptions} */
   const timeFormatOpts = {
-    hour12: false,
+    hourCycle: 'h23',
     hour: '2-digit',
     minute: '2-digit',
     second: '2-digit',
