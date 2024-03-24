@@ -7,6 +7,9 @@
 	"background": {
 		"service_worker": "sw.js"
 	},
+	"permissions": [
+		"alarms"
+	],
 	"action": {
 		"default_title": "UTC Clock",
 		"default_icon": "images/icon2.png",
